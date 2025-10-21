@@ -1,17 +1,17 @@
 function get_value(key)
-    local input = io.input("/data.json")
-    local tab = textUtils.deserializeJSON(input:read("*a"))
+    local input = io.input("./data.json")
+    local tab = textutils.unserializeJSON(input:read("*a"))
     io.close(input)
     return tab[key]
 end
 
 function set_value(key, val)
-    local input = io.input("/data.json")
-    local tab = textUtils.deserializeJSON(input:read("*a"))
+    local input = io.input("./data.json")
+    local tab = textutils.unserializeJSON(input:read("*a"))
     io.close(input)
     tab[key] = val
-    local output = io.output("/data.json")
-    output:write(textUtils.serializeJSON(tab))
+    local output = io.output("./data.json")
+    output:write(textutils.serializeJSON(tab))
     io.close(output)
 end
 
@@ -24,8 +24,8 @@ function add_log(val)
 end
 
 function get_all()
-    local input = io.input("/data.json")
-    local tab = textUtils.deserializeJSON(input:read("*a"))
+    local input = io.input("./data.json")
+    local tab = textutils.unserializeJSON(input:read("*a"))
     io.close(input)
 
     return tab
